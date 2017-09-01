@@ -879,7 +879,7 @@ class LabeledDiGraph(nx.MultiDiGraph):
                 raise nx.NetworkXError(msg)
         return attr_dict
 
-    def add_node(self, n, attr_dict=None, check=True, **attr):
+    def add_node(self, node, attr_dict=None, check=True, **attr):
         """Use a L{TypedDict} as attribute dict.
 
         Overrides C{networkx.MultiDiGraph.add_node},
@@ -901,7 +901,12 @@ class LabeledDiGraph(nx.MultiDiGraph):
         self._check_for_untyped_keys(typed_attr,
                                      self._node_label_types,
                                      check)
-        nx.MultiDiGraph.add_node(self, n, attr_dict=typed_attr)
+        if node not in self._succ:
+            self._succ[node] = self.adjlist_inner_dict_factory()
+            self._pred[node] = self.adjlist_inner_dict_factory()
+            self._node[node] = typed_attr
+        else:
+            self._node[node].update(typed_attr)
 
     def add_nodes_from(self, nodes, check=True, **attr):
         """Create or label multiple nodes.
