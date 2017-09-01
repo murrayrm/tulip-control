@@ -233,7 +233,7 @@ Alternatively ``find()`` may be bypassed in favor of the ``networkx`` method `ed
 
 .. code-block:: python
 
-  [u for u, d in g.edges_iter('s0', data=True) if d['sys_action'] == 'jump']
+  [u for u, d in g.edges('s0', data=True) if d['sys_action'] == 'jump']
 
 To add or label multiple nodes with one call,
 call ``LabeledDiGraph.add_nodes_from``, as described `here

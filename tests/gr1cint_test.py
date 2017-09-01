@@ -244,8 +244,8 @@ def test_load_aut_json():
         for k, v in d.items():
             v_ = d_.get(k)
             assert v_ == v, (k, v, v_, d, d_)
-    h_edges = set(h.edges_iter())
-    g_edges = set(g.edges_iter())
+    h_edges = set(h.edges())
+    g_edges = set(g.edges())
     assert h_edges == g_edges, (h_edges, g_edges)
 
 

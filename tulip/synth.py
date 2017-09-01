@@ -1355,7 +1355,7 @@ def _int2str(label, str_vars):
 
 def mask_outputs(machine):
     """Erase outputs from each edge where they are zero."""
-    for u, v, d in machine.edges_iter(data=True):
+    for u, v, d in machine.edges(data=True):
         for k in d:
             if k in machine.outputs and d[k] == 0:
                 d.pop(k)
@@ -1448,7 +1448,7 @@ def determinize_machine_init(mach, init_out_values=None):
     # restrict attention to given output ports only
     given_ports = tuple(k for k in mach.outputs if k in init_out_values)
     rm_edges = set()
-    for i, j, key, d in mach.edges_iter(['Sinit'], data=True, keys=True):
+    for i, j, key, d in mach.edges(['Sinit'], data=True, keys=True):
         for k in given_ports:
             if d[k] != init_out_values[k]:
                 rm_edges.add((i, j, key))
@@ -1461,7 +1461,7 @@ def determinize_machine_init(mach, init_out_values=None):
     # fix a key order
     inputs = tuple(k for k in mach.inputs)
     rm_edges = set()
-    for i, j, key, d in mach.edges_iter(['Sinit'], data=True, keys=True):
+    for i, j, key, d in mach.edges(['Sinit'], data=True, keys=True):
         in_values = tuple(d[k] for k in inputs)
         # newly encountered input valuation ?
         if in_values not in possible_inputs:

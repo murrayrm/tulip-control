@@ -531,7 +531,7 @@ class Transitions(object):
         nx_adj = nx.from_scipy_sparse_matrix(
             adj, create_using=nx.DiGraph())
         # add each edge using existing checks
-        for i, j in nx_adj.edges_iter():
+        for i, j in nx_adj.edges():
             si = adj2states[i]
             sj = adj2states[j]
             self.add(si, sj, attr_dict, check, **attr)
@@ -598,7 +598,7 @@ class Transitions(object):
         except:
             raise TypeError('with_attr_dict must be a dict')
         found_transitions = []
-        u_v_edges = self.graph.edges_iter(nbunch=from_states, data=True)
+        u_v_edges = self.graph.edges(nbunch=from_states, data=True)
         if to_states is not None:
             u_v_edges = [(u, v, d)
                          for u, v, d in u_v_edges
@@ -869,7 +869,7 @@ class LabeledDiGraph(nx.MultiDiGraph):
         for node, attr_dict in self.nodes(data=True):
             if not attr_dict.is_consistent():
                 return False
-        for node_i, node_j, attr_dict in self.edges_iter(data=True):
+        for node_i, node_j, attr_dict in self.edges(data=True):
             if not attr_dict.is_consistent():
                 return False
         return True
