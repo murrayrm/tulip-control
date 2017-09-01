@@ -229,7 +229,7 @@ possible post states,
 
   set([e[1] for e in g.transitions.find('s0', with_attr_dict={'sys_action':'jump'})])
 
-Alternatively ``find()`` may be bypassed in favor of the ``networkx`` method `edges_iter <https://networkx.github.io/documentation/latest/reference/generated/networkx.MultiDiGraph.edges_iter.html?highlight=edges_iter#networkx.MultiDiGraph.edges_iter>`_, as in
+Alternatively ``find()`` may be bypassed in favor of the ``networkx`` method `edges`, as in
 
 .. code-block:: python
 
