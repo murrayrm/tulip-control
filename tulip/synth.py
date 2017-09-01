@@ -1268,7 +1268,7 @@ def strategy2mealy(A, spec):
     mach.states.add_from(A)
     # transitions labeled with I/O
     for u in A:
-        for v in A.successors_iter(u):
+        for v in A.successors(u):
             d = A.node[v]['state']
             d = _int2str(d, str_vars)
             mach.transitions.add(u, v, **d)

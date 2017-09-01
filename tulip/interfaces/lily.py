@@ -168,7 +168,7 @@ def lily_strategy2moore(g, env_vars, sys_vars):
 
     # add initial states
     for u in phantom_init:
-        for v in g.successors_iter(u):
+        for v in g.successors(u):
             m.states.initial.add(mapping[v])
 
     # label vertices with output values
