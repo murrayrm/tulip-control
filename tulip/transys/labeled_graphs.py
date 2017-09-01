@@ -995,19 +995,15 @@ class LabeledDiGraph(nx.MultiDiGraph):
                                      check)
         # the only change from nx in this clause is using TypedDict
         logger.debug('adding edge: ' + str(u) + ' ---> ' + str(v))
+        if key is None:
+            key = self.new_edge_key(u, v)
         if v in self._succ[u]:
             keydict = self._adj[u][v]
-            # find a unique integer key
-            if key is None:
-                key = len(keydict)
-                while key in keydict:
-                    key -= 1
             datadict = keydict.get(key, typed_attr)
             datadict.update(typed_attr)
             keydict[key] = datadict
         else:
             # selfloops work this way without special treatment
-            key = 0
             keydict = {key: typed_attr}
             self._succ[u][v] = keydict
             self._pred[v][u] = keydict
