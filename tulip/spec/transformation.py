@@ -302,7 +302,7 @@ def sub_bool_with_subtree(tree, bool2subtree):
         are defined by C{bool2form}.
     @type bool2form: C{dict} from C{str} to L{Tree}
     """
-    for u in tree.nodes():
+    for u in list(tree.nodes()):
         if u.type == 'var' and u.value in bool2subtree:
             # tree.write(str(id(tree)) + '_before.png')
             tree.add_subtree(u, bool2subtree[u.value])
