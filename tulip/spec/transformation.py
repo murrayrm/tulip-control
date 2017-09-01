@@ -330,7 +330,7 @@ def pair_node_to_var(tree, c):
     # find parent Binary operator
     while True:
         old = c
-        c = next(iter(tree.predecessors_iter(c)))
+        c = next(iter(tree.predecessors(c)))
         if c.type == 'operator':
             if len(c.operands) == 2:
                 break
