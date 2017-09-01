@@ -249,7 +249,7 @@ def sub_values(tree, var_values):
         L{Num}, L{Const}, or L{Bool}
     """
     old2new = dict()
-    for u in tree.nodes_iter():
+    for u in tree.nodes():
         if u.type != 'var':
             continue
         val = var_values[u.value]
@@ -276,7 +276,7 @@ def sub_constants(tree, var_str2int):
     """
     # logger.info('substitute ints for constants in:\n\t' + str(self))
     old2new = dict()
-    for u in tree.nodes_iter():
+    for u in tree.nodes():
         if u.type != 'str':
             continue
         var, op = pair_node_to_var(tree, u)

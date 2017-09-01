@@ -153,7 +153,7 @@ def _strategy_to_state_annotated(g, aut):
     @rtype: `nx.DiGraph`
     """
     h = nx.DiGraph()
-    for u, d in g.nodes_iter(data=True):
+    for u, d in g.nodes(data=True):
         dvars = {k: d[k] for k in d if k in aut.vars}
         h.add_node(u, state=dvars)
     for u, v in g.edges_iter():

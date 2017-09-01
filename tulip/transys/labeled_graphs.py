@@ -352,7 +352,7 @@ class States(object):
                 msg += ' with states = ' + str(states)
                 logger.debug(msg)
         found_state_label_pairs = []
-        for state, attr_dict in self.graph.nodes_iter(data=True):
+        for state, attr_dict in self.graph.nodes(data=True):
             logger.debug('Checking state_id = ' + str(state) +
                          ', with attr_dict = ' + str(attr_dict))
             if states is not None:
@@ -866,7 +866,7 @@ class LabeledDiGraph(nx.MultiDiGraph):
 
         @rtype: bool
         """
-        for node, attr_dict in self.nodes_iter(data=True):
+        for node, attr_dict in self.nodes(data=True):
             if not attr_dict.is_consistent():
                 return False
         for node_i, node_j, attr_dict in self.edges_iter(data=True):

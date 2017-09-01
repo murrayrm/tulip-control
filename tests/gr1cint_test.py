@@ -238,7 +238,7 @@ def test_load_aut_json():
              (nodes[2], nodes[1])]
     h.add_edges_from(edges)
     # compare
-    for u, d in h.nodes_iter(data=True):
+    for u, d in h.nodes(data=True):
         assert u in g, (u, g.nodes())
         d_ = g.node[u]
         for k, v in d.items():

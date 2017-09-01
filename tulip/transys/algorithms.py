@@ -106,7 +106,7 @@ def _multiply_mutable_states(self, other, prod_graph, prod_sys):
         return prod_attr_dict
 
     # union of state labels from the networkx tuples
-    for prod_state_id, attr_dict in prod_graph.nodes_iter(data=True):
+    for prod_state_id, attr_dict in prod_graph.nodes(data=True):
         prod_attr_dict = state_label_union(attr_dict)
         prod_state = prod_ids2states(prod_state_id, self, other)
 
@@ -126,7 +126,7 @@ def _multiply_mutable_states(self, other, prod_graph, prod_sys):
 
     # # multiply mutable states (only the reachable added)
     # if self.states.mutants or other.states.mutants:
-    #     for idx, prod_state_id in enumerate(prod_graph.nodes_iter() ):
+    #     for idx, prod_state_id in enumerate(prod_graph.nodes() ):
     #         prod_state = prod_ids2states(prod_state_id, self, other)
     #         prod_sys.states.mutants[idx] = prod_state
     #

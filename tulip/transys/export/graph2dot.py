@@ -68,7 +68,7 @@ def _states2dot_str(graph, to_pydot_graph, wrap=10,
     else:
         label_format = {'type?label': '', 'separator': r'\\n'}
 
-    for u, d in graph.nodes_iter(data=True):
+    for u, d in graph.nodes(data=True):
         # initial state ?
         is_initial = u in states.initial
         is_accepting = _is_accepting(graph, u)

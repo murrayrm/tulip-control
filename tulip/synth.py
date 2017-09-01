@@ -1291,7 +1291,7 @@ def strategy2mealy(A, spec):
     # Mealy reaction to initial env input
     init_valuations = set()
     tmp = dict()
-    for u, d in A.nodes_iter(data=True):
+    for u, d in A.nodes(data=True):
         var_values = d['state']
         vals = tuple(var_values[k] for k in keys)
         # already an initial valuation ?
