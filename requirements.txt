@@ -7,7 +7,7 @@ numpy==1.7
 scipy
 
 # easy extras
-gr1py>=0.1.0
+gr1py==0.2.0
 
 # extras (uncomment as needed)
 # cvxopt==1.1.7  # for faster polytopic operations
