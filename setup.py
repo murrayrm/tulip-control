@@ -104,9 +104,11 @@ def run_setup():
             'pydot >= 1.2.0',
             'scipy'],
         tests_require=[
-            'nose',
+            'gr1py >= 0.2.0',
             'matplotlib >= 2.0.0',
-            'mock'],
+            'mock',
+            'nose',
+            ],
         packages=[
             'tulip', 'tulip.transys', 'tulip.transys.export',
             'tulip.abstract', 'tulip.spec',
