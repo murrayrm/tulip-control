@@ -100,7 +100,7 @@ def run_setup():
             'numpy >= 1.7',
             'omega >= 0.0.9, < 0.1.0',
             'ply >= 3.4',
-            'polytope >= 0.2.0',
+            'polytope >= 0.2.1',
             'pydot >= 1.2.0',
             'scipy'],
         tests_require=[
