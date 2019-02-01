@@ -48,6 +48,7 @@ script:
   - pip download --no-dependencies dd==0.4.3
   - tar xzf dd-*.tar.gz
   - cd dd-*/
+  - pip install -r requirements.txt
   - export CUDD_VERSION=3.0.0
   - export CUDD_GZ=cudd-${CUDD_VERSION}.tar.gz
   - curl -sSL https://sourceforge.net/projects/cudd-mirror/files/${CUDD_GZ}/download > ${CUDD_GZ}
