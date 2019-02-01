@@ -1,5 +1,5 @@
 sudo: required
-dist: trusty
+dist: xenial
 
 language: python
 python:
@@ -7,6 +7,7 @@ python:
   - "3.4"
   - "3.5"
   - "3.6"
+  - "3.7"
 
 addons:
   apt:
